@@ -156,3 +156,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Sound effects from [youtube]
 - Background music from [youtube]
 - Icons and animations inspiration from [emojipedia]
+- Created by @krutika-bhalla❤️
