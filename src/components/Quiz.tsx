@@ -46,7 +46,6 @@ const Quiz: React.FC = () => {
   });
   const [confetti, setConfetti] = useState<Array<{ id: number; color: string; left: string; animationDelay: string }>>([]);
 
-  // Initialize audio elements
   useEffect(() => {
     const bgAudio = new Audio('/audio/quiz.mp3');
     bgAudio.loop = true;
@@ -65,7 +64,6 @@ const Quiz: React.FC = () => {
     };
   }, []);
 
-  // Handle audio when quiz is completed
   useEffect(() => {
     if (quizState.showScore) {
       if (backgroundAudio) {
@@ -85,23 +83,19 @@ const Quiz: React.FC = () => {
     }
   };
 
-  // start the timer and text-to-speech only after quiz has started
   useEffect(() => {
     if (!hasStarted) return;
 
     if (!quizState.showScore && !feedback.show) {
       const currentQuestion = questions[quizState.currentQuestionIndex];
       
-      // Cancel any ongoing speech
       synth.cancel();
 
-      // Create a new utterance for the current question
       const utterance = new SpeechSynthesisUtterance(currentQuestion.question);
       utterance.rate = 0.9;
       utterance.pitch = 1;
       utterance.volume = 1;
 
-      // Speak the question
       synth.speak(utterance);
     }
 
@@ -110,7 +104,6 @@ const Quiz: React.FC = () => {
     };
   }, [quizState.currentQuestionIndex, quizState.showScore, feedback.show, hasStarted]);
 
-  // Timer effect - after quiz has started
   useEffect(() => {
     if (!hasStarted) return;
 
@@ -187,7 +180,7 @@ const Quiz: React.FC = () => {
     const currentQuestion = questions[quizState.currentQuestionIndex];
     const isCorrect = selectedAnswer === currentQuestion.correctAnswer;
     
-    // Store user's answer
+    // Store answer
     setUserAnswers(prev => {
       const newAnswers = [...prev];
       newAnswers[quizState.currentQuestionIndex] = selectedAnswer;
