@@ -347,7 +347,7 @@ const Quiz: React.FC = () => {
               key={index}
               onClick={() => handleOptionClick(option)}
               className={`option-button ${selectedAnswer === option ? 'selected' : ''} ${
-                feedback.show && option === currentQuestion.correctAnswer ? 'correct-answer' : ''
+                feedback.show && feedback.isCorrect && option === currentQuestion.correctAnswer ? 'correct-answer' : ''
               }`}
               disabled={feedback.show}
             >

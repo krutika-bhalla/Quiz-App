@@ -40,7 +40,7 @@ export const questions: Question[] = [
   {
     id: 7,
     question: "What is the fastest land animal in the world?",
-    options: ["Lion", "Cheetah", "Gazelle", "Kangaroo"],
+    options: ["Leopard", "Kangaroo", "Gazelle", "Cheetah"],
     correctAnswer: "Cheetah"
   },
   {
